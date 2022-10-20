@@ -137,7 +137,7 @@
         <ul class="navbar-nav list-group">
             <li class="list-group-item">
                 {{-- @if(Auth::user()->userRole->name == "Owner" || Auth::user()->userRole->name == "Manager") --}}
-                <a href="#usersSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle text-decoration-none">
+                {{-- <a href="#usersSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle text-decoration-none">
                     <div class="text-white py-3">
                         <div class="nav-icon d-inline-block text-center">
                             <i class="fas fa-users"></i>
@@ -150,9 +150,9 @@
                 <ul id="usersSubmenu" class="list-unstyled navmenu-list text-left text-white collapse">
                     <li><a href="{{ url('/users') }}">All</a></li>      
                     <li><a href="{{ url('/users/deactivated/') }}">Deactivated</a></li>      
-                </ul>
+                </ul> --}}
                 {{-- @else --}}
-                {{-- <a href="/users" class="text-decoration-none">
+                <a href="/users" class="text-decoration-none">
                     <div class="text-white py-3">
                         <div class="nav-icon d-inline-block text-center">
                             <i class="fas fa-users"></i>
@@ -161,7 +161,7 @@
                             Users
                         </div>
                     </div>
-                </a> --}}
+                </a>
                 {{-- @endif --}}
             </li>      
             {{-- <li class="list-group-item">
@@ -175,7 +175,7 @@
                         </div>
                     </div>
                 </a>
-            </li>    --}}
+            </li> --}}
         </ul>
     </nav>
 </aside>

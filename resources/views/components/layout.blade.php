@@ -37,7 +37,6 @@
     @endif
 
     <main class="main py-4">
-        {{-- @yield('content') --}}
         {{$slot}}
     </main>
 

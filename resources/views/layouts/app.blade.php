@@ -35,8 +35,7 @@
         <nav class="navbar navbar-expand-md navbar-dark bg-secondary shadow-sm">
             <div class="container d-flex justify-content-center">
                 <div class="text-center text-white">
-                    {{-- <a class="text-decoration-none text-white" href="{{ url('/') }}"> --}}
-                    <a class="text-decoration-none text-white" href="#">
+                    <a class="text-decoration-none text-white" href="{{ url('/') }}">
                         <div class="p-2">
                             <i class="fas fa-scroll fa-2x"></i>
                             <h1 class="header-title">Town Portal</h1>
