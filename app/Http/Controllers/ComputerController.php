@@ -31,6 +31,10 @@ class ComputerController extends Controller
 
     }
 
+    public function show() {
+
+    }
+
     public function edit() {
 
     }
