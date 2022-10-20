@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ComputerController;
+use App\Http\Controllers\DesktopController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 
@@ -39,3 +40,7 @@ Route::get('/computers/{computerId}/edit', [ComputerController::class, 'edit']);
 Route::patch('/computers/{computerId}', [ComputerController::class, 'update']);
 Route::delete('/computers/{computerId}', [ComputerController::class, 'destroy']);
 // Route::resource('/computers', 'ComputerController');
+
+Route::delete('/desktops/delete/all/{userID}', [DesktopController::class, 'deleteAll']);
+Route::resource('/desktops', DesktopController::class);
+Route::patch('/desktops/status/{statusID}/desktop/{desktopID}', [DesktopController::class, 'updateStatus']);
