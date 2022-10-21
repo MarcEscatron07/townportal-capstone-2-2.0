@@ -33,7 +33,7 @@
                                     @endforeach
                                 @else
                                     @foreach($locations as $location)
-                                        @if($location->id === $computer->location_id)
+                                        @if($location->id == $computer->location_id)
                                             <option value="{{ $location->id }}" selected>{{ $location->row }}</option>
                                         @else
                                             <option value="{{ $location->id }}">{{ $location->row }}</option>
