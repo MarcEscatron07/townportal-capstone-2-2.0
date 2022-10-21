@@ -4,6 +4,7 @@ use App\Http\Controllers\ComputerController;
 use App\Http\Controllers\DesktopController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\MaintenanceLogController;
 use App\Http\Controllers\PeripheralController;
 use App\Http\Controllers\UserController;
 
@@ -59,3 +60,9 @@ Route::get('/users/deactivated', [UserController::class, 'showDeactivatedUsers']
 Route::patch('/users/restore/{userID}', [UserController::class, 'restore']);
 Route::delete('/users/permanentdelete/{userID}', [UserController::class, 'permanentDelete']);
 Route::resource('/users', UserController::class);
+
+Route::get('/maintenancelog', [MaintenanceLogController::class, 'index']);
+Route::delete('/maintenancelog/status/{mlID}', [MaintenanceLogController::class, 'setStatus']);
+Route::delete('/maintenancelog/disposal/{mlID}', [MaintenanceLogController::class, 'setDisposal']);
+Route::post('/maintenancelog/remarks/{remarksID}', [MaintenanceLogController::class, 'getRemarks']);
+Route::patch('/maintenancelog/remarks/{remarksID}/update/{formRemarks}', [MaintenanceLogController::class, 'updateRemarks']);
