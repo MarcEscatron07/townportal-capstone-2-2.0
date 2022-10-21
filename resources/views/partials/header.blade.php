@@ -38,8 +38,8 @@
                 @endif
             </div></a> --}}
 
-            {{-- <form class="h-100 ml-3" id="logout-form" action="{{ route('logout') }}" method="POST"> --}}
-            <form class="h-100 ml-3" id="logout-form" action="" method="POST">
+            <form class="h-100 ml-3" id="logout-form" action="{{ route('logout') }}" method="POST">
+            {{-- <form class="h-100 ml-3" id="logout-form" action="" method="POST"> --}}
                 @csrf
 
                 <button class="btn btn-dark h-100 rounded-0"><i class="fas fa-sign-out-alt mr-2"></i>Logout</button>
@@ -51,13 +51,13 @@
     <nav class="sidenav navbar-dark">
         <div class="profile-container nav-border position-relative clearfix">
             <div class="d-flex justify-content-center align-items-center py-4 px-2">    
-                {{-- <img id="profile_image" class="rounded-border mr-2 img-fluid" src="{{ asset(Auth::user()->image) }}" alt="user-profile"> --}}
-                <img id="profile_image" class="rounded-border mr-2 img-fluid" src="{{ asset('images/profile/default.png') }}" alt="user-profile">
+                <img id="profile_image" class="rounded-border mr-2 img-fluid" src="{{ asset(Auth::user()->image) }}" alt="user-profile">
+                {{-- <img id="profile_image" class="rounded-border mr-2 img-fluid" src="{{ asset('images/profile/default.png') }}" alt="user-profile"> --}}
                 <div class="profile-details ml-2 text-white text-center d-inline-block">
-                    {{-- <h1 class="font-weight-bold m-0">{{ ucfirst(Auth::user()->username) }}</h1> --}}
-                    <h1 class="font-weight-bold m-0">USERNAME</h1>
-                    {{-- <h2 class="m-0">{{ ucfirst(Auth::user()->userRole->name) }}</h2> --}}
-                    <h2 class="m-0">ROLE</h2>
+                    <h1 class="font-weight-bold m-0">{{ ucfirst(Auth::user()->username) }}</h1>
+                    {{-- <h1 class="font-weight-bold m-0">USERNAME</h1> --}}
+                    <h2 class="m-0">{{ ucfirst(Auth::user()->userRole->name) }}</h2>
+                    {{-- <h2 class="m-0">ROLE</h2> --}}
                 </div>
             </div>          
             <a class="view-profile text-center text-white text-decoration-none" href="{{ url('/profile') }}" hidden>View Profile</a>              
@@ -136,8 +136,8 @@
         <sub class="text-secondary font-weight-bold">OTHERS</sub>
         <ul class="navbar-nav list-group">
             <li class="list-group-item">
-                {{-- @if(Auth::user()->userRole->name == "Owner" || Auth::user()->userRole->name == "Manager") --}}
-                {{-- <a href="#usersSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle text-decoration-none">
+                @if(Auth::user()->userRole->name == "Owner" || Auth::user()->userRole->name == "Manager")
+                <a href="#usersSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle text-decoration-none">
                     <div class="text-white py-3">
                         <div class="nav-icon d-inline-block text-center">
                             <i class="fas fa-users"></i>
@@ -150,8 +150,8 @@
                 <ul id="usersSubmenu" class="list-unstyled navmenu-list text-left text-white collapse">
                     <li><a href="{{ url('/users') }}">All</a></li>      
                     <li><a href="{{ url('/users/deactivated/') }}">Deactivated</a></li>      
-                </ul> --}}
-                {{-- @else --}}
+                </ul>
+                @else
                 <a href="/users" class="text-decoration-none">
                     <div class="text-white py-3">
                         <div class="nav-icon d-inline-block text-center">
@@ -162,7 +162,7 @@
                         </div>
                     </div>
                 </a>
-                {{-- @endif --}}
+                @endif
             </li>      
             {{-- <li class="list-group-item">
                 <a href="#" class="text-decoration-none">
