@@ -46,8 +46,8 @@
                         {{-- <div class="card-header rounded-0 bg-light text-dark">{{ __('Login') }}</div> --}}
         
                         <div class="card-body">
-                            {{-- <form method="POST" action="{{ route('login') }}"> --}}
-                            <form method="POST" action="">
+                            <form method="POST" action="{{ route('login') }}">
+                            {{-- <form method="POST" action=""> --}}
                                 @csrf
         
                                 <div class="form-group row">
@@ -112,8 +112,8 @@
                         {{-- <div class="card-header bg-light text-dark">{{ __('Register') }}</div> --}}
         
                         <div class="card-body">
-                            {{-- <form method="POST" action="{{ route('register') }}"> --}}
-                            <form method="POST" action="">
+                            <form method="POST" action="{{ route('register') }}">
+                            {{-- <form method="POST" action=""> --}}
                                 @csrf
         
                                 <div class="form-group row">
