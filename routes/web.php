@@ -4,6 +4,7 @@ use App\Http\Controllers\ComputerController;
 use App\Http\Controllers\DesktopController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\PeripheralController;
 
 /*
 |--------------------------------------------------------------------------
@@ -44,3 +45,11 @@ Route::delete('/computers/{computerId}', [ComputerController::class, 'destroy'])
 Route::delete('/desktops/delete/all/{userID}', [DesktopController::class, 'deleteAll']);
 Route::resource('/desktops', DesktopController::class);
 Route::patch('/desktops/status/{statusID}/desktop/{desktopID}', [DesktopController::class, 'updateStatus']);
+
+Route::delete('/peripherals/delete/all/{userID}', [PeripheralController::class, 'deleteAll']);
+Route::get('/peripherals/monitor', [PeripheralController::class, 'showMonitor']);
+Route::get('/peripherals/keyboard', [PeripheralController::class, 'showKeyboard']);
+Route::get('/peripherals/mouse', [PeripheralController::class, 'showMouse']);
+Route::get('/peripherals/headset', [PeripheralController::class, 'showHeadset']);
+Route::resource('/peripherals', PeripheralController::class);
+Route::patch('/peripherals/status/{statusID}/peripheral/{peripheralID}', [PeripheralController::class, 'updateStatus']);
