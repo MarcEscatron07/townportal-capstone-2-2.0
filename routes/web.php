@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ComputerController;
 use App\Http\Controllers\DesktopController;
+use App\Http\Controllers\DisposalArchiveController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MaintenanceLogController;
@@ -66,3 +67,12 @@ Route::delete('/maintenancelog/status/{mlID}', [MaintenanceLogController::class,
 Route::delete('/maintenancelog/disposal/{mlID}', [MaintenanceLogController::class, 'setDisposal']);
 Route::post('/maintenancelog/remarks/{remarksID}', [MaintenanceLogController::class, 'getRemarks']);
 Route::patch('/maintenancelog/remarks/{remarksID}/update/{formRemarks}', [MaintenanceLogController::class, 'updateRemarks']);
+
+Route::get('/disposalarchive', [DisposalArchiveController::class, 'index']);
+Route::delete('/disposalarchive/restore/{dpID}', [DisposalArchiveController::class, 'restoreItem']);
+Route::delete('/disposalarchive/dispose/{dpID}', [DisposalArchiveController::class, 'disposeItem']);
+Route::post('/disposalarchive/disposed/details/get/{detailsID}', [DisposalArchiveController::class, 'getDisposedItemDetails']);
+Route::post('/disposalarchive/hasdetails/{detailsID}', [DisposalArchiveController::class, 'hasItemDetails']);
+Route::patch('/disposalarchive/details/save/{detailsID}', [DisposalArchiveController::class, 'saveItemDetails']);
+Route::post('/disposalarchive/details/edit/{detailsID}', [DisposalArchiveController::class, 'editItemDetails']);
+Route::patch('/disposalarchive/details/update/{detailsID}', [DisposalArchiveController::class, 'updateItemDetails']);
