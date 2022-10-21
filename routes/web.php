@@ -5,6 +5,7 @@ use App\Http\Controllers\DesktopController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PeripheralController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -53,3 +54,8 @@ Route::get('/peripherals/mouse', [PeripheralController::class, 'showMouse']);
 Route::get('/peripherals/headset', [PeripheralController::class, 'showHeadset']);
 Route::resource('/peripherals', PeripheralController::class);
 Route::patch('/peripherals/status/{statusID}/peripheral/{peripheralID}', [PeripheralController::class, 'updateStatus']);
+
+Route::get('/users/deactivated', [UserController::class, 'showDeactivatedUsers']);
+Route::patch('/users/restore/{userID}', [UserController::class, 'restore']);
+Route::delete('/users/permanentdelete/{userID}', [UserController::class, 'permanentDelete']);
+Route::resource('/users', UserController::class);

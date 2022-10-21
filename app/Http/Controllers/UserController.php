@@ -13,7 +13,13 @@ class UserController extends Controller
      */
     public function index()
     {
-        //
+        // $mcount = MaintenanceLog::all();
+        // session(['maintenancecount' => count($mcount)]);
+
+        // $users = User::paginate(5);
+        $users = [];
+
+        return view('pages.others.users', compact('users'));
     }
 
     /**
