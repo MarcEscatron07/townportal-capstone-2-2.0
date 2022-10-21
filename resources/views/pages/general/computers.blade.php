@@ -9,11 +9,11 @@
 
 				@include('partials.panel')
 
-				{{-- @if(Auth::user()->userRole->name == "Owner")
+				@if(Auth::user()->userRole->name == "Owner")
 				<div class="mb-2 pt-3">	
 					<a href="/computers/create" class="btn btn-success rounded-0">Add Computer</a>		
 				</div>
-				@endif --}}
+				@endif
 				<div class="container-shadow">				
 					<table class="table">
 						<thead class="text-center text-white bg-secondary">
@@ -28,9 +28,9 @@
 										</sub>
 									</div>
 								</th>		
-								{{-- @if(Auth::user()->userRole->name == "Owner")
+								@if(Auth::user()->userRole->name == "Owner")
 								<th class="align-middle">Action</th>		
-								@endif --}}
+								@endif
 							</tr>
 						</thead>
 						<tbody>
@@ -57,7 +57,7 @@
 											{{ '---' }}
 										@endif						
 									</td>
-									{{-- @if(Auth::user()->userRole->name == "Owner")
+									@if(Auth::user()->userRole->name == "Owner")
 									<td class="align-middle">
 										<div class="d-flex justify-content-center">										
 											<form action="/computers/{{ $computer->id }}/edit" method="GET">
@@ -70,7 +70,7 @@
 											</button>
 										</div>
 									</td>
-									@endif --}}
+									@endif
 								</tr>	
 
 								<!-- Delete Data Modal -->
@@ -96,8 +96,8 @@
 															</div>
 															<div class="w-75 ml-1">
 																<input type="password" class="inp-delete form-control" name="deldata_password" placeholder="Enter your password">
-																{{-- <input type="number" name="deldata_userid" value="{{ Auth::user()->id }}" hidden> --}}
-																<input type="number" name="deldata_userid" value="" hidden>
+																<input type="number" name="deldata_userid" value="{{ Auth::user()->id }}" hidden>
+																{{-- <input type="number" name="deldata_userid" value="" hidden> --}}
 															</div>
 														</div>
 													</div>
