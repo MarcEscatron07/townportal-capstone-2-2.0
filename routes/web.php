@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MaintenanceLogController;
 use App\Http\Controllers\PeripheralController;
+use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UserController;
 
 /*
@@ -36,6 +37,12 @@ Route::get('/', function () {
 */
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');
+
+Route::get('/profile', [ProfileController::class, 'index']);
+Route::patch('/profile/image/{userID}', [ProfileController::class, 'updateImage']);
+Route::patch('/profile/user/{userID}', [ProfileController::class, 'updateUser']);
+Route::patch('/profile/changepassword/{userID}', [ProfileController::class, 'updatePassword']);
+Route::delete('/profile/deleteaccount/{userID}', [ProfileController::class, 'deleteAccount']);
 
 Route::get('/computers/create', [ComputerController::class, 'create']);
 Route::post('/computers', [ComputerController::class, 'store']);
