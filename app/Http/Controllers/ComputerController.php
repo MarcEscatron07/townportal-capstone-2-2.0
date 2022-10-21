@@ -28,6 +28,8 @@ class ComputerController extends Controller
         $peripherals = Peripheral::all();
         // $peripherals = [];
 
+        // dd($locations, $computers, $peripherals);
+
     	return view('pages.general.computers', compact('locations','computers','peripherals'));
     }
 
@@ -54,7 +56,7 @@ class ComputerController extends Controller
             $computer->save();
 
             session()->flash('success','Computer added!');
-            return redirect('/computers/create');
+            return redirect('/computers');
         }
     }
 
@@ -65,13 +67,16 @@ class ComputerController extends Controller
     public function edit(Computer $computer) {
         $actionFlag = 0;
         $locations = Location::all();
+        // dd($actionFlag, $computer, $locations);
         
-        return view('actions.action_computer', compact('actionFlag','computer', 'locations'));
+        return view('actions.action_computer', compact('actionFlag','computer','locations'));
     }
 
     public function update(Computer $computer, Request $request) {
         $checkRow = Computer::where('location_id', '=', $request->cmp_row)->first(); 
         $checkNumber = Computer::where('pc_number', '=', $request->cmp_num)->first();
+
+        // dd($checkRow, $checkNumber, $request);
 
         if($checkRow && $checkNumber) {  
             session()->flash('error','Computer already exists!');
@@ -89,6 +94,8 @@ class ComputerController extends Controller
 
     public function destroy(Computer $computer, Request $request) {
         $verifyPassword = User::find($request->deldata_userid)->password;
+
+        // dd($computer, $request, $verifyPassword);
 
         if(Hash::check($request->deldata_password, $verifyPassword)) {
             $computer->delete();

@@ -40,16 +40,18 @@
 									<td class="align-middle">{{ $computer->location->row }}</td>
 									<td class="align-middle">{{ $computer->pc_number }}</td>
 									<td class="align-middle">
-										@if($computer->desktop['name'] == "")
-											{{ '---' }}
-										@else
-											{{ $computer->desktop['name'] }}
+										@if(isset($computer->desktop['name']))
+											@if($computer->desktop['name'] == "")
+												{{ '---' }}
+											@else
+												{{ $computer->desktop['name'] }}
+											@endif
 										@endif
 									</td>
 									<td class="align-middle">
 										@if(count($peripherals) != 0)
 											@foreach($peripherals as $peripheral)
-												@if($peripheral->computer_id === $computer->id)
+												@if($peripheral->computer_id == $computer->id)
 													<small>{{ $peripheral->name }}</small>
 												@endif
 											@endforeach		
@@ -127,7 +129,6 @@
 			</div>
 		</div>
 	</div>
-</x-layout>
 
 @section('script')
 <script type="text/javascript">
@@ -172,3 +173,4 @@
     });
 </script>
 @endsection
+</x-layout>
