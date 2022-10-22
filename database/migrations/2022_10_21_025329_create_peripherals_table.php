@@ -21,7 +21,8 @@ return new class extends Migration
             $table->bigInteger('type_id')->unsigned();
             $table->string('serial_number')->unique()->default('None');
             $table->decimal('cost', 18, 2)->unsigned();
-            $table->date('purchase_date');            
+            $table->date('purchase_date');
+            $table->text('remarks'); //            
             $table->bigInteger('status_id')->unsigned()->default(1);      
             $table->timestamps();
 
