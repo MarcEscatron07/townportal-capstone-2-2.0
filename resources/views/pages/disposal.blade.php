@@ -22,13 +22,13 @@
                                 <th class="align-middle">Asset Brand</th>
                                 <th class="align-middle">Type</th>
                                 <th class="align-middle">Serial No.</th>
-                                {{-- @if(Auth::user()->userRole->name == "Owner" || Auth::user()->userRole->name == "Manager")                         
+                                @if(Auth::user()->userRole->name == "Owner" || Auth::user()->userRole->name == "Manager")                         
                                 <th class="align-middle">Disposal Details</th>
-                                @endif                           --}}
+                                @endif
                                 <th class="align-middle">Archived At</th>
-                                {{-- @if(Auth::user()->userRole->name == "Owner")
+                                @if(Auth::user()->userRole->name == "Owner")
                                 <th class="align-middle">Action</th>
-                                @endif --}}
+                                @endif
                             </tr>
                         </thead>
                         <tbody>
@@ -41,20 +41,20 @@
                                     <td class="align-middle">{{ $disposal->brand }}</td>
                                     <td class="align-middle">{{ $disposal->type }}</td>
                                     <td class="align-middle">{{ $disposal->serial_number }}</td>     
-                                    {{-- @if(Auth::user()->userRole->name == "Owner" || Auth::user()->userRole->name == "Manager")   
+                                    @if(Auth::user()->userRole->name == "Owner" || Auth::user()->userRole->name == "Manager")   
                                     <td class="align-middle">
                                         <button type="button" class="btn-details btn btn-info" data-toggle="modal" data-target="#detailsModal" data-id="{{ $disposal->id }}"><i class="fas fa-list-ul"></i></button>
                                     </td>  
-                                    @endif                       --}}
+                                    @endif
                                     <td class="align-middle">{{ $disposal->archived_at }}</td>
-                                    {{-- @if(Auth::user()->userRole->name == "Owner")
+                                    @if(Auth::user()->userRole->name == "Owner")
                                     <td class="align-middle">
                                         <div class="d-flex justify-content-center">
                                             <button type="button" class="restore-btn btn btn-success mr-1" data-toggle="modal" data-target="#restoreModal" data-id="{{ $disposal->id }}"><i class="fas fa-trash-restore"></i></button>
                                             <button type="button" class="delete-btn btn btn-danger ml-1" data-toggle="modal" data-target="#deleteModal" data-id="{{ $disposal->id }}"><i class="fas fa-trash"></i></button>
                                         </div>
                                     </td>
-                                    @endif --}}
+                                    @endif
                                 </tr>
 
                                 <!-- Details Modal -->								
@@ -155,11 +155,11 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                {{-- @if(Auth::user()->userRole->name == "Owner")
+                                                @if(Auth::user()->userRole->name == "Owner")
                                                 <div class="modal-footer details-footer">
                                                     <button type="submit" data-id="{{ $disposal->id }}" class="save-details btn btn-info rounded-0">Save</button>
                                                 </div>
-                                                @endif --}}
+                                                @endif
                                             </form>
                                         </div>
                                     </div>
@@ -231,7 +231,6 @@
             </div>
         </div>
     </div>
-</x-layout>
 
 @section('script')
 <script type="text/javascript">
@@ -403,3 +402,4 @@
     }
 </script>
 @endsection
+</x-layout>
