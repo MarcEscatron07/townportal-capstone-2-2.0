@@ -9,11 +9,11 @@
 
                 @include('partials.panel')
 
-                {{-- @if(Auth::user()->userRole->name == "Owner")
+                @if(Auth::user()->userRole->name == "Owner")
 				<div class="mb-2 pt-3">	
 					<a href="/users/create" class="btn btn-success rounded-0">Add a User</a>
 				</div>
-                @endif --}}
+                @endif
                 <div class="container-shadow">
                     <table class="table">
                         <thead class="text-center text-white bg-secondary">
@@ -25,9 +25,9 @@
                                 <th class="align-middle">Lastname</th>
                                 <th class="align-middle">Email</th>
                                 <th class="align-middle">Role</th>
-                                {{-- @if(Auth::user()->userRole->name == "Owner")
+                                @if(Auth::user()->userRole->name == "Owner")
                                 <th class="align-middle">Action</th>
-                                @endif --}}
+                                @endif
                             </tr>
                         </thead>
                         <tbody>
@@ -43,7 +43,7 @@
                                     <td class="align-middle">{{ $user->lastname }}</td>                                
                                     <td class="align-middle">{{ $user->email }}</td>                                
                                     <td class="align-middle">{{ $user->userRole->name }}</td>     
-                                    {{-- @if(Auth::user()->userRole->name == "Owner")
+                                    @if(Auth::user()->userRole->name == "Owner")
                                         @if($user->userRole->name == "Owner")    
                                         <td class="align-middle"></td>
                                         @else                       
@@ -58,7 +58,7 @@
                                             </div>
                                         </td>    
                                         @endif    
-                                    @endif --}}
+                                    @endif
                                 </tr>             
 
                                 <!-- Delete Modal -->
@@ -102,7 +102,6 @@
             </div>
         </div>
     </div>
-</x-layout>
 
 @section('script')
 <script type="text/javascript">
@@ -116,3 +115,4 @@
 	});
 </script>
 @endsection
+</x-layout>

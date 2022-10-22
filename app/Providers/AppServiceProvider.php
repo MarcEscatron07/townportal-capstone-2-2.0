@@ -25,5 +25,12 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         Paginator::useBootstrap();
+
+        /*
+        To enable Pagination with Bootstrap styling, do the following steps:
+        -   in the terminal, run this command: php artisan vendor:publish
+        -   check the list, find the index of 'laravel-pagination' and enter in the terminal
+        -   go in AppServiceProvider and apply this line of code: Paginator::useBootstrap();  [Import Class: use Illuminate\Pagination\Paginator]
+    */
     }
 }
