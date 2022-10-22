@@ -24,9 +24,9 @@
 								<th class="align-middle">Serial No.</th>								
 								<th class="align-middle">Logged At</th>					
 								<th class="align-middle">Remarks</th>
-								{{-- @if(Auth::user()->userRole->name == "Owner")
+								@if(Auth::user()->userRole->name == "Owner")
 								<th class="align-middle">Action</th>
-								@endif --}}
+								@endif
 							</tr>
 						</thead>
 						<tbody>
@@ -43,14 +43,14 @@
 									<td class="align-middle">
 										<button type="button" class="btn-remarks btn btn-info" data-toggle="modal" data-target="#remarksModal" data-id="{{ $maintenance->id }}"><i class="fas fa-marker"></i></button>
 									</td>
-									{{-- @if(Auth::user()->userRole->name == "Owner")
+									@if(Auth::user()->userRole->name == "Owner")
 									<td class="align-middle">	
 										<div class="d-flex justify-content-center">									
 											<button type="button" class="restore-btn btn btn-success mr-1" data-toggle="modal" data-target="#restoreModal" data-id="{{ $maintenance->id }}"><i class="fas fa-check-double"></i></button>										
 											<button type="button" class="delete-btn btn btn-danger ml-1" data-toggle="modal" data-target="#deleteModal" data-id="{{ $maintenance->id }}"><i class="fas fa-dumpster"></i></button>
 										</div>
 									</td>
-									@endif --}}
+									@endif
 								</tr>
 
 								<!-- Remarks Modal -->								
@@ -67,7 +67,7 @@
 												<input type="checkbox" class="checkbox-edit mb-3" checked> Edit
 												<textarea class="textarea-remarks form-control" placeholder="Type your remarks here.."></textarea>
 											</div>
-											{{-- @if(Auth::user()->userRole->name == "Owner")
+											@if(Auth::user()->userRole->name == "Owner")
 											<div class="modal-footer remarks-footer">
 												<form class="form-remarks" action="" method="POST">
 													@csrf
@@ -76,7 +76,7 @@
 													<button type="submit" data-id="{{ $maintenance->id }}" class="save-remarks btn btn-info rounded-0">Save</button>
 												</form>
 											</div>
-											@endif --}}
+											@endif
 										</div>
 									</div>
 								</div>
@@ -147,7 +147,6 @@
 			</div>
 		</div>
 	</div>
-</x-layout>
 
 @section('script')
 <script type="text/javascript">
@@ -235,3 +234,4 @@
 		});
 </script>
 @endsection
+</x-layout>
