@@ -9,14 +9,14 @@
 				
 				@include('partials.panel')
 
-				{{-- @if(Auth::user()->userRole->name == "Owner")
+				@if(Auth::user()->userRole->name == "Owner")
 				<div class="d-flex flex-row justify-content-between mb-2 pt-3">
 					<a href="/desktops/create" class="btn btn-success rounded-0">Add Desktop</a>
 					<button id="btn_deleteall" type="button" class="btn btn-danger rounded-0" data-toggle="modal" data-target="#deleteAllModal">
 					DELETE ALL
 					</button>
 				</div>
-				@endif --}}
+				@endif
 				<div class="container-shadow">				
 					<table class="table">
 						<thead class="text-center text-white bg-secondary">
@@ -29,14 +29,14 @@
 								<th class="align-middle">Name</th>				
 								<th class="align-middle">Brand</th>				
 								<th class="align-middle">Serial No.</th>
-								{{-- @if(Auth::user()->userRole->name == "Owner" || Auth::user()->userRole->name == "Manager")
+								@if(Auth::user()->userRole->name == "Owner" || Auth::user()->userRole->name == "Manager")
 								<th class="align-middle">Cost</th>
 								<th class="align-middle">Purchase Date</th>
-								@endif --}}
+								@endif
 								<th class="align-middle">Status</th>						
-								{{-- @if(Auth::user()->userRole->name == "Owner")
+								@if(Auth::user()->userRole->name == "Owner")
 								<th class="align-middle">Action</th>		
-								@endif --}}
+								@endif
 							</tr>
 						</thead>
 						<tbody>
@@ -48,17 +48,17 @@
 									<td class="align-middle">{{ $desktop->name }}</td>
 									<td class="align-middle">{{ $desktop->brand }}</td>		
 									<td class="align-middle">{{ $desktop->serial_number }}</td>
-									{{-- @if(Auth::user()->userRole->name == "Owner" || Auth::user()->userRole->name == "Manager")
+									@if(Auth::user()->userRole->name == "Owner" || Auth::user()->userRole->name == "Manager")
 									<td class="align-middle">{{ "₱".number_format($desktop->cost, 2) }}</td>			
 									<td class="align-middle">{{ $desktop->purchase_date }}</td>
-									@endif --}}
+									@endif
 									<td class="align-middle">
 										<div class="d-flex justify-content-center">
-											{{-- @if(Auth::user()->userRole->name == "Owner" || Auth::user()->userRole->name == "Manager")
+											@if(Auth::user()->userRole->name == "Owner" || Auth::user()->userRole->name == "Manager")
 											<select class="us-desktop form-control auto-width">
-											@else --}}
+											@else
 											<select class="us-desktop form-control auto-width" disabled>
-											{{-- @endif --}}
+											@endif
 												@foreach($statuses as $status)
 													@if($status->id == $desktop->status->id)
 														<option value="{{ $status->id }}" selected>{{ $desktop->status->name }}</option>
@@ -70,7 +70,7 @@
 											<input type="number" data-id="{{ $desktop->id }}" hidden>
 										</div>
 									</td>						
-									{{-- @if(Auth::user()->userRole->name == "Owner")
+									@if(Auth::user()->userRole->name == "Owner")
 									<td class="align-middle">
 										<div class="d-flex justify-content-center">
 											<form action="/desktops/{{ $desktop->id }}/edit" method="GET">
@@ -81,7 +81,7 @@
 											<button type="button" class="delete-btn btn btn-danger ml-1" data-toggle="modal" data-target="#deleteModal" data-id="{{ $desktop->id }}"><i class="fas fa-dumpster"></i></button>
 										</div>
 									</td>
-									@endif	 --}}
+									@endif
 								</tr>			
 
 								<!-- Delete Modal -->
@@ -130,8 +130,8 @@
 							<div class="dm-header modal-header">
 								<h5 class="modal-title" id="deleteAllModalLabel"><i class="fas fa-exclamation-triangle mr-2"></i><strong>DELETE ALL</strong></h5>                                                    
 							</div>
-							{{-- <form action="/desktops/delete/all/{{ Auth::user()->id }}" method="POST"> --}}
-							<form action="" method="POST">
+							<form action="/desktops/delete/all/{{ Auth::user()->id }}" method="POST">
+							{{-- <form action="" method="POST"> --}}
 								@csrf
 								@method('DELETE')
 
@@ -159,7 +159,6 @@
 			</div>
 		</div>
 	</div>
-</x-layout>
 
 @section('script')
 <script type="text/javascript">
@@ -260,3 +259,4 @@
     });
 </script>
 @endsection
+</x-layout>

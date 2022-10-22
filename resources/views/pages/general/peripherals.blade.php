@@ -28,14 +28,14 @@
 								<th class="align-middle">Brand</th>				
                                 <th class="align-middle">Type</th>
                                 <th class="align-middle">Serial No.</th>
-                                {{-- @if(Auth::user()->userRole->name == "Owner" || Auth::user()->userRole->name == "Manager")
+                                @if(Auth::user()->userRole->name == "Owner" || Auth::user()->userRole->name == "Manager")
 								<th class="align-middle">Cost</th>
 								<th class="align-middle">Purchase Date</th>
-                                @endif --}}
+                                @endif
                                 <th class="align-middle">Status</th>							
-								{{-- @if(Auth::user()->userRole->name == "Owner")
+								@if(Auth::user()->userRole->name == "Owner")
 								<th class="align-middle">Action</th>		
-								@endif --}}
+								@endif
                             </tr>
                         </thead>
                         <tbody>
@@ -48,18 +48,18 @@
                                     <td class="align-middle">{{ $peripheral->brand }}</td>
                                     <td class="align-middle">{{ $peripheral->type->name }}</td>
                                     <td class="align-middle">{{ $peripheral->serial_number }}</td>
-                                    {{-- @if(Auth::user()->userRole->name == "Owner" || Auth::user()->userRole->name == "Manager")
+                                    @if(Auth::user()->userRole->name == "Owner" || Auth::user()->userRole->name == "Manager")
                                     <td class="align-middle">{{ "₱".number_format($peripheral->cost, 2) }}</td>
                                     <td class="align-middle">{{ $peripheral->purchase_date }}</td>
-                                    @endif --}}
+                                    @endif
                                     <td class="align-middle">
                                         @if($peripheral->type->name == "Monitor")
                                         <div class="d-flex justify-content-center">
-                                            {{-- @if(Auth::user()->userRole->name == "Owner" || Auth::user()->userRole->name == "Manager")
+                                            @if(Auth::user()->userRole->name == "Owner" || Auth::user()->userRole->name == "Manager")
                                             <select class="us-peripheral form-control auto-width">
-                                            @else --}}
+                                            @else
                                             <select class="us-peripheral form-control" disabled>
-                                            {{-- @endif --}}
+                                            @endif
                                                 @foreach($statuses as $status)
                                                     @if($status->id == $peripheral->status->id)
                                                         <option value="{{ $status->id }}" selected>{{ $peripheral->status->name }}</option>
@@ -80,7 +80,7 @@
                                             @endforeach
                                         @endif
                                     </td>    
-                                    {{-- @if(Auth::user()->userRole->name == "Owner")                         
+                                    @if(Auth::user()->userRole->name == "Owner")                         
                                     <td class="align-middle">
                                         <div class="d-flex justify-content-center">
                                             <form action="/peripherals/{{ $peripheral->id }}/edit" method="GET">
@@ -91,7 +91,7 @@
                                             <button type="button" class="delete-btn btn btn-danger ml-1" data-toggle="modal" data-target="#deleteModal" data-id="{{ $peripheral->id }}"><i class="fas fa-dumpster"></i></button>
                                         </div>
                                     </td>
-                                    @endif --}}
+                                    @endif
                                 </tr>
 
                                 <!-- Delete Modal -->
@@ -140,8 +140,8 @@
 							<div class="dm-header modal-header">
 								<h5 class="modal-title" id="deleteAllModalLabel"><i class="fas fa-exclamation-triangle mr-2"></i><strong>DELETE ALL</strong></h5>                                                    
 							</div>
-							{{-- <form action="/peripherals/delete/all/{{ Auth::user()->id }}" method="POST"> --}}
-							<form action="" method="POST">
+							<form action="/peripherals/delete/all/{{ Auth::user()->id }}" method="POST">
+							{{-- <form action="" method="POST"> --}}
 								@csrf
 								@method('DELETE')
 
@@ -168,8 +168,7 @@
 				</div>
             </div>
         </div>
-    </div>    
-</x-layout>
+    </div>
 
 @section('script')
 <script type="text/javascript">
@@ -259,3 +258,4 @@
     });
 </script>
 @endsection
+</x-layout>

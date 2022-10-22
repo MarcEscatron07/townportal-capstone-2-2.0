@@ -24,6 +24,7 @@ class PeripheralsTableSeeder extends Seeder
                 'serial_number' => '7UYM460LPK',
                 'cost' => 8000,
                 'purchase_date' => '2019-07-01', 
+                'remarks' => 'None',
                 'status_id' => 1
             ],
             [
@@ -34,6 +35,7 @@ class PeripheralsTableSeeder extends Seeder
                 'serial_number' => '8X3F60GJG',
                 'cost' => 4200,
                 'purchase_date' => '2019-07-01', 
+                'remarks' => 'None',
                 'status_id' => 1
             ],
             [
@@ -44,6 +46,7 @@ class PeripheralsTableSeeder extends Seeder
                 'serial_number' => '4CYT460GJG',
                 'cost' => 3500,
                 'purchase_date' => '2019-07-01', 
+                'remarks' => 'None',
                 'status_id' => 1
             ],
             [
@@ -54,6 +57,7 @@ class PeripheralsTableSeeder extends Seeder
                 'serial_number' => 'NKRC460UHE',
                 'cost' => 1000,
                 'purchase_date' => '2019-07-01', 
+                'remarks' => 'None',
                 'status_id' => 1
             ],[
                 'computer_id' => 2, 
@@ -63,6 +67,7 @@ class PeripheralsTableSeeder extends Seeder
                 'serial_number' => 'TEST SERIAL1',
                 'cost' => 8000,
                 'purchase_date' => '2019-07-01', 
+                'remarks' => 'None',
                 'status_id' => 1
             ],
             [
@@ -73,6 +78,7 @@ class PeripheralsTableSeeder extends Seeder
                 'serial_number' => 'TEST SERIAL2',
                 'cost' => 4200,
                 'purchase_date' => '2019-07-01', 
+                'remarks' => 'None',
                 'status_id' => 1
             ],
             [
@@ -83,6 +89,7 @@ class PeripheralsTableSeeder extends Seeder
                 'serial_number' => 'TEST SERIAL3',
                 'cost' => 3500,
                 'purchase_date' => '2019-07-01', 
+                'remarks' => 'None',
                 'status_id' => 1
             ],
             [
@@ -93,6 +100,7 @@ class PeripheralsTableSeeder extends Seeder
                 'serial_number' => 'TEST SERIAL4',
                 'cost' => 1000,
                 'purchase_date' => '2019-07-01', 
+                'remarks' => 'None',
                 'status_id' => 1
             ]
         ]);
