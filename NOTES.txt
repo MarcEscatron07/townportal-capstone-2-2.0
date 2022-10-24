@@ -20,3 +20,7 @@ Deployment to Heroku:
 **Setting a Laravel Encryption Key
 10.) php artisan key:generate --show    (For this project, the key is: base64:Nt0nifKqZWaIk/FDrfTgv8AqgChG7/FxrAuraX91K6o=)
 11.) heroku config:set APP_KEY=         (Example: heroku config:set APP_KEY=base64:Nt0nifKqZWaIk/FDrfTgv8AqgChG7/FxrAuraX91K6o=)
+
+**Pushing to Heroku
+12.) git push heroku main
+13.) heroku open
