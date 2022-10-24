@@ -1,0 +1,22 @@
+NOTE: Skip steps 1-5 if you already have an existing Laravel project.
+
+Deployment to Heroku:
+---------------------
+**Installing a new Laravel project
+1.) composer create-project laravel/laravel --prefer-dist hello_laravel_heroku
+2.) cd hello_laravel_heroku
+3.) git init
+4.) git add .
+5.) git commit -m "new laravel project"
+
+**Creating a Procfile
+6.) echo "web: vendor/bin/heroku-php-apache2 public/" > Procfile
+7.) git add .
+8.) git commit -m "Procfile for Heroku"
+
+**Creating a new application on Heroku
+9.) heroku create
+
+**Setting a Laravel Encryption Key
+10.) php artisan key:generate --show    (For this project, the key is: base64:Nt0nifKqZWaIk/FDrfTgv8AqgChG7/FxrAuraX91K6o=)
+11.) heroku config:set APP_KEY=         (Example: heroku config:set APP_KEY=base64:Nt0nifKqZWaIk/FDrfTgv8AqgChG7/FxrAuraX91K6o=)
