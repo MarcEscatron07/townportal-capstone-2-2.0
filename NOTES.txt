@@ -1,10 +1,11 @@
-NOTE: Skip steps 1-5 if you already have an existing Laravel project.
+NOTE:   Skip steps 1-5 if you already have an existing Laravel project. 
+        Also make sure to use a managed SQL database service (Ex. Heroku Postgres) and mailing service (Ex. Mailtrap)
 
 Deployment to Heroku:
 ---------------------
 **Installing a new Laravel project
-1.) composer create-project laravel/laravel --prefer-dist hello_laravel_heroku
-2.) cd hello_laravel_heroku
+1.) composer create-project laravel/laravel --prefer-dist project-name
+2.) cd project-name
 3.) git init
 4.) git add .
 5.) git commit -m "new laravel project"
@@ -15,7 +16,7 @@ Deployment to Heroku:
 8.) git commit -m "Procfile for Heroku"
 
 **Creating a new application on Heroku
-9.) heroku create
+9.) heroku create project-name
 
 **Setting a Laravel Encryption Key
 10.) php artisan key:generate --show    (For this project, the key is: base64:Nt0nifKqZWaIk/FDrfTgv8AqgChG7/FxrAuraX91K6o=)
@@ -24,3 +25,29 @@ Deployment to Heroku:
 **Pushing to Heroku
 12.) git push heroku main
 13.) heroku open
+
+
+Setting up the Config Vars (For Database & Mailing service)
+-----------------------------------------------------------
+1.) heroku login
+2.) heroku pg:credentials:url
+3.) copy the output of the command above in Notepad for reference since it will be used on the following steps below
+
+**Config Vars for the Database
+4.) heroku config:add DB_CONNECTION=        (Example: heroku config:add DB_CONNECTION=pgsql)
+5.) heroku config:add DB_HOST=              (Example: heroku config:add DB_CONNECTION=ec2-54-163-34-107.compute-1.amazonaws.com)
+6.) heroku config:add DB_PORT=              (Example: heroku config:add DB_PORT=5432)
+7.) heroku config:add DB_DATABASE=          (Example: heroku config:add DB_DATABASE=dfslfl8s27jtnt)
+8.) heroku config:add DB_USERNAME=          (Example: heroku config:add DB_DATABASE=ctbxjvafkeyhdo)
+9.) heroku config:add DB_PASSWORD=          (Example: heroku config:add DB_DATABASE=65639921389230873a529de6e609add9cae6b7cd20811f6a7f86b0d5c1ab7066)
+
+**Config Vars for the Mailing service
+10.) heroku config:add MAIL_MAILER=          (Example: MAIL_MAILER=smtp)
+11.) heroku config:add MAIL_HOST=            (Example: MAIL_HOST=smtp.mailtrap.io)
+12.) heroku config:add MAIL_PORT=           (Example: MAIL_PORT=2525)
+13.) heroku config:add MAIL_USERNAME=       (Example: MAIL_USERNAME=8fe9241b801557)
+14.) heroku config:add MAIL_PASSWORD=       (Example: MAIL_PASSWORD=2c63074963522a)
+15.) heroku config:add MAIL_ENCRYPTION=     (Example: MAIL_ENCRYPTION=tls)
+
+**Seeding the database
+16.) heroku run php artisan migrate:refresh --seed
