@@ -14,32 +14,32 @@
                         <div class="row">
                             <div class="col-md-4">
                                 <div class="image-container text-center p-4">                            
-                                    {{-- <img id="image_viewer" class="rounded-border" src="{{ asset(Auth::user()->image) }}" alt="profile-image"> --}}
-                                    <img id="image_viewer" class="rounded-border" src="{{ asset('images/profile/default.png') }}" alt="profile-image">
+                                    <img id="image_viewer" class="rounded-border" src="{{ asset(Auth::user()->image) }}" alt="profile-image">
+                                    {{-- <img id="image_viewer" class="rounded-border" src="{{ asset('images/profile/default.png') }}" alt="profile-image"> --}}
                                     <div class="my-4 w-100">
                                         <button id="btn_picture" class="btn btn-secondary rounded-0 px-4" type="button" data-toggle="collapse" data-target="#changePictureCollapse" aria-expanded="false" aria-controls="changePictureCollapse">
                                             Change Picture
                                         </button>
                                         <div class="collapse mb-5 pt-2" id="changePictureCollapse">
-                                            {{-- <form action="/profile/image/{{ Auth::user()->id }}" method="POST" enctype="multipart/form-data"> --}}
-                                            <form action="" method="POST" enctype="multipart/form-data">
+                                            <form action="/profile/image/{{ Auth::user()->id }}" method="POST" enctype="multipart/form-data">
+                                            {{-- <form action="" method="POST" enctype="multipart/form-data"> --}}
                                                 @csrf
                                                 @method('PATCH')
 
                                                 <div class="d-flex flex-column justify-content-center">
                                                     <input type="file" id="image_uploader" class="mt-4 bg-secondary text-white" name="prf_image">
                                                     <button type="submit" class="btn btn-dark rounded-0 mt-3 px-4" hidden>Save</button>
-                                                    {{-- <input type="text" name="prf_currentuser" value="{{ Auth::user()->username }}" hidden> --}}
-                                                    <input type="text" name="prf_currentuser" value="" hidden>
+                                                    <input type="text" name="prf_currentuser" value="{{ Auth::user()->username }}" hidden>
+                                                    {{-- <input type="text" name="prf_currentuser" value="" hidden> --}}
                                                 </div>
                                             </form>
                                         </div>                                
                                     </div>             
-                                    {{-- @if(Auth::user()->userRole->name != "Owner")                     
+                                    @if(Auth::user()->userRole->name != "Owner")                     
                                         <button id="btn_deleteaccount" type="button" class="btn btn-danger rounded-0" data-toggle="modal" data-target="#deleteAccountModal">
                                         DEACTIVATE ACCOUNT
                                         </button>
-                                    @endif --}}
+                                    @endif
 
                                     <!-- Delete Account Modal -->
                                     <div class="modal fade" id="deleteAccountModal" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="deleteAccountModalLabel" aria-hidden="true">
@@ -48,8 +48,8 @@
                                                 <div class="dm-header modal-header">
                                                     <h5 class="modal-title" id="deleteAccountModalLabel"><i class="fas fa-exclamation-triangle mr-2"></i><strong>DEACTIVATE ACCOUNT</strong></h5>                                                    
                                                 </div>
-                                                {{-- <form action="/profile/deleteaccount/{{ Auth::user()->id }}" method="POST"> --}}
-                                                <form action="" method="POST">
+                                                <form action="/profile/deleteaccount/{{ Auth::user()->id }}" method="POST">
+                                                {{-- <form action="" method="POST"> --}}
                                                     @csrf
                                                     @method('DELETE')
 
@@ -84,8 +84,8 @@
                                             <i class="edit-icon fas fa-pen"></i>
                                         </div>
                                         <hr class="mt-2 mb-4">
-                                        {{-- <form action="/profile/user/{{ Auth::user()->id }}" method="POST"> --}}
-                                        <form action="" method="POST">
+                                        <form action="/profile/user/{{ Auth::user()->id }}" method="POST">
+                                        {{-- <form action="" method="POST"> --}}
                                             @csrf
                                             @method('PATCH')
 
@@ -94,8 +94,8 @@
                                                     <label for="profile_username">Username</label>
                                                 </div>
                                                 <div class="w-75">
-                                                    {{-- <input id="profile_username" type="text" class="profile-input edit-input w-100" name="prf_username" value="{{ Auth::user()->username }}" disabled> --}}
-                                                    <input id="profile_username" type="text" class="profile-input edit-input w-100" name="prf_username" value="" disabled>
+                                                    <input id="profile_username" type="text" class="profile-input edit-input w-100" name="prf_username" value="{{ Auth::user()->username }}" disabled>
+                                                    {{-- <input id="profile_username" type="text" class="profile-input edit-input w-100" name="prf_username" value="" disabled> --}}
                                                 </div>
                                             </div>
                                             <div class="form-group d-flex flex-row">
@@ -103,8 +103,8 @@
                                                     <label for="profile_firstname">Firstname</label>
                                                 </div>
                                                 <div class="w-75">
-                                                    {{-- <input id="profile_firstname" type="text" class="profile-input edit-input w-100" name="prf_firstname" value="{{ ucfirst(Auth::user()->firstname) }}" disabled> --}}
-                                                    <input id="profile_firstname" type="text" class="profile-input edit-input w-100" name="prf_firstname" value="" disabled>
+                                                    <input id="profile_firstname" type="text" class="profile-input edit-input w-100" name="prf_firstname" value="{{ ucfirst(Auth::user()->firstname) }}" disabled>
+                                                    {{-- <input id="profile_firstname" type="text" class="profile-input edit-input w-100" name="prf_firstname" value="" disabled> --}}
                                                 </div>
                                             </div>
                                             <div class="form-group d-flex flex-row">
@@ -112,8 +112,8 @@
                                                     <label for="profile_lastname">Lastname</label>
                                                 </div>
                                                 <div class="w-75">
-                                                    {{-- <input id="profile_lastname" type="text" class="profile-input edit-input w-100" name="prf_lastname"  value="{{ ucfirst(Auth::user()->lastname) }}" disabled> --}}
-                                                    <input id="profile_lastname" type="text" class="profile-input edit-input w-100" name="prf_lastname"  value="" disabled>
+                                                    <input id="profile_lastname" type="text" class="profile-input edit-input w-100" name="prf_lastname"  value="{{ ucfirst(Auth::user()->lastname) }}" disabled>
+                                                    {{-- <input id="profile_lastname" type="text" class="profile-input edit-input w-100" name="prf_lastname"  value="" disabled> --}}
                                                 </div>
                                             </div>
                                             <div class="form-group d-flex flex-row">
@@ -121,8 +121,8 @@
                                                     <label for="profile_email">Email</label>
                                                 </div>
                                                 <div class="w-75">
-                                                    {{-- <input id="profile_email" type="text" class="profile-input edit-input w-100" name="prf_email" value="{{ Auth::user()->email }}" disabled> --}}
-                                                    <input id="profile_email" type="text" class="profile-input edit-input w-100" name="prf_email" value="" disabled>
+                                                    <input id="profile_email" type="text" class="profile-input edit-input w-100" name="prf_email" value="{{ Auth::user()->email }}" disabled>
+                                                    {{-- <input id="profile_email" type="text" class="profile-input edit-input w-100" name="prf_email" value="" disabled> --}}
                                                 </div>
                                             </div>     
                                             <div class="form-group d-flex flex-row">
@@ -130,8 +130,8 @@
                                                     <label for="profile_role">Account Role</label>
                                                 </div>
                                                 <div class="w-75">
-                                                    {{-- <input id="profile_role" type="text" class="profile-input w-100" value="{{ Auth::user()->userRole->name }}" disabled> --}}
-                                                    <input id="profile_role" type="text" class="profile-input w-100" value="" disabled>
+                                                    <input id="profile_role" type="text" class="profile-input w-100" value="{{ Auth::user()->userRole->name }}" disabled>
+                                                    {{-- <input id="profile_role" type="text" class="profile-input w-100" value="" disabled> --}}
                                                 </div>
                                             </div>  
                                             <div class="profile-action" hidden>
@@ -145,8 +145,8 @@
                                             <i class="edit-icon fas fa-pen"></i>
                                         </div>
                                         <hr class="mt-2 mb-4">
-                                        {{-- <form action="/profile/changepassword/{{ Auth::user()->id }}" method="POST"> --}}
-                                        <form action="" method="POST">
+                                        <form action="/profile/changepassword/{{ Auth::user()->id }}" method="POST">
+                                        {{-- <form action="" method="POST"> --}}
                                             @csrf
                                             @method('PATCH')
 
@@ -187,7 +187,6 @@
             </div>
         </div>
     </div>
-</x-layout>
 
 @section('script')
 <script>
@@ -323,3 +322,4 @@
     });
 </script>
 @endsection
+</x-layout>
